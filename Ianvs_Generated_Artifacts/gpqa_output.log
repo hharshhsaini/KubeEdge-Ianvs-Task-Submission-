@@ -1,0 +1,84 @@
+WARNING 02-14 19:19:48 _custom_ops.py:19] Failed to import from vllm._C with ImportError('libcuda.so.1: cannot open shared object file: No such file or directory')
+[32m[2026-02-14 19:19:50,435] edge_model.py(47) [INFO][0m - Initializing EdgeModel with kwargs: {'model': 'Qwen/Qwen2.5-7B-Instruct', 'backend': 'api', 'temperature': 1e-07, 'top_p': 0.9, 'max_tokens': 1024, 'repetition_penalty': 1, 'use_cache': True}[0m
+[32m[2026-02-14 19:19:50,437] cloud_model.py(34) [INFO][0m - Initializing CloudModel with kwargs: {'api_provider': 'openai', 'model': 'gpt-4o-mini', 'api_key_env': 'OPENAI_API_KEY', 'api_base_url': 'OPENAI_BASE_URL', 'temperature': 0.9, 'top_p': 0.9, 'max_tokens': 1024, 'repetition_penalty': 1.05, 'use_cache': True}[0m
+[32m[2026-02-14 19:19:50,466] cloud_model.py(60) [INFO][0m - Model 'gpt-4o-mini' loaded successfully.[0m
+[32m[2026-02-14 19:19:51,241] joint_inference.py(73) [INFO][0m - Loading dataset[0m
+[32m[2026-02-14 19:19:51,252] hard_sample_mining.py(33) [INFO][0m - USING OracleRouterFilter[0m
+[32m[2026-02-14 19:19:51,253] joint_inference.py(167) [INFO][0m - Inference Start[0m
+  0%|                                                                       | 0/198 [00:00<?, ?it/s][31m[2026-02-14 19:20:02,336] edge_model.py(105) [ERROR][0m - Inference failed: Error during API inference: Error code: 400 - {'error': {'message': 'invalid model ID', 'type': 'invalid_request_error', 'param': None, 'code': None}}[0m
+  0%|                                                                       | 0/198 [00:11<?, ?it/s]
+Traceback (most recent call last):
+  File "/ianvs/./examples/cloud-edge-collaborative-inference-for-llm/testalgorithms/query-routing/models/api_llm.py", line 90, in _infer
+    stream = self.client.chat.completions.create(
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/openai/_utils/_utils.py", line 286, in wrapper
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/openai/resources/chat/completions/completions.py", line 1147, in create
+    return self._post(
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/openai/_base_client.py", line 1259, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/openai/_base_client.py", line 1047, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'error': {'message': 'invalid model ID', 'type': 'invalid_request_error', 'param': None, 'code': None}}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/ianvs/./examples/cloud-edge-collaborative-inference-for-llm/testalgorithms/query-routing/edge_model.py", line 103, in predict
+    return self.model.inference(data)
+  File "/ianvs/./examples/cloud-edge-collaborative-inference-for-llm/testalgorithms/query-routing/models/base_llm.py", line 136, in inference
+    response = self._infer(messages)
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/decorator.py", line 235, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/retry/api.py", line 73, in retry_decorator
+    return __retry_internal(partial(f, *args, **kwargs), exceptions, tries, delay, max_delay, backoff, jitter,
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/retry/api.py", line 33, in __retry_internal
+    return f()
+  File "/ianvs/./examples/cloud-edge-collaborative-inference-for-llm/testalgorithms/query-routing/models/api_llm.py", line 142, in _infer
+    raise RuntimeError(f"Error during API inference: {e}")
+RuntimeError: Error during API inference: Error code: 400 - {'error': {'message': 'invalid model ID', 'type': 'invalid_request_error', 'param': None, 'code': None}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/testcasecontroller/testcase/testcase.py", line 74, in run
+    res, system_metric_info = paradigm.run()
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/testcasecontroller/algorithm/paradigm/joint_inference/joint_inference.py", line 121, in run
+    inference_result = self._inference(job)
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/testcasecontroller/algorithm/paradigm/joint_inference/joint_inference.py", line 177, in _inference
+    infer_res = job.inference(
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/sedna/core/joint_inference/joint_inference.py", line 325, in inference
+    is_hard_example = self.hard_example_mining_algorithm(data)
+  File "/ianvs/./examples/cloud-edge-collaborative-inference-for-llm/testalgorithms/query-routing/hard_sample_mining.py", line 232, in __call__
+    edge_result = self.edge_model.predict(data).get("prediction")
+  File "/ianvs/./examples/cloud-edge-collaborative-inference-for-llm/testalgorithms/query-routing/edge_model.py", line 106, in predict
+    raise RuntimeError("Inference failed due to an internal error.") from e
+RuntimeError: Inference failed due to an internal error.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/testcasecontroller/testcasecontroller.py", line 54, in run_testcases
+    res, time = (testcase.run(workspace), utils.get_local_time())
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/testcasecontroller/testcase/testcase.py", line 79, in run
+    raise RuntimeError(
+RuntimeError: (paradigm=jointinference) pipeline runs failed, error: Inference failed due to an internal error.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/cmd/benchmarking.py", line 37, in main
+    job.run()
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/cmd/obj/benchmarkingjob.py", line 94, in run
+    succeed_testcases, test_results = self.testcase_controller.run_testcases(self.workspace)
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/testcasecontroller/testcasecontroller.py", line 56, in run_testcases
+    raise RuntimeError(f"testcase(id={testcase.id}) runs failed, error: {err}") from err
+RuntimeError: testcase(id=1f694fd8-09da-11f1-803a-7ee22e31c3d5) runs failed, error: (paradigm=jointinference) pipeline runs failed, error: Inference failed due to an internal error.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/ianvs-experiment/bin/ianvs", line 33, in <module>
+    sys.exit(load_entry_point('ianvs==0.1.0', 'console_scripts', 'ianvs')())
+  File "/opt/conda/envs/ianvs-experiment/lib/python3.8/site-packages/ianvs-0.1.0-py3.8.egg/core/cmd/benchmarking.py", line 41, in main
+    raise RuntimeError(f"benchmarkingjob runs failed, error: {err}.") from err
+RuntimeError: benchmarkingjob runs failed, error: testcase(id=1f694fd8-09da-11f1-803a-7ee22e31c3d5) runs failed, error: (paradigm=jointinference) pipeline runs failed, error: Inference failed due to an internal error..

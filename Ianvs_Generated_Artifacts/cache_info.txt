@@ -1,0 +1,50 @@
+﻿
+=== Cache Entry 0 ===
+Config: {
+  "model": "NousResearch/Llama-2-7b-chat-hf",
+  "backend": "EagleSpecDec",
+  "draft_model": "yuhuili/EAGLE-llama2-chat-7B",
+  "temperature": 1e-07,
+  "top_p": 0.9,
+  "max_tokens": 1024,
+  "repetition_penalty": 1,
+  "use_cache": true
+}
+Number of cached results: 198
+
+=== Cache Entry 1 ===
+Config: {
+  "model": "NousResearch/Llama-2-7b-chat-hf",
+  "backend": "huggingface",
+  "draft_model": "yuhuili/EAGLE-llama2-chat-7B",
+  "temperature": 1e-07,
+  "top_p": 0.9,
+  "max_tokens": 1024,
+  "repetition_penalty": 1,
+  "use_cache": true
+}
+Number of cached results: 198
+
+=== Cache Entry 2 ===
+Config: {
+  "model": "NousResearch/Llama-2-7b-chat-hf",
+  "backend": "vllm",
+  "draft_model": "yuhuili/EAGLE-llama2-chat-7B",
+  "temperature": 1e-07,
+  "top_p": 0.9,
+  "max_tokens": 1024,
+  "repetition_penalty": 1,
+  "use_cache": true
+}
+Number of cached results: 198
+
+=== Cache Entry 3 ===
+Config: {
+  "model": "gpt-4o-mini",
+  "temperature": 0.9,
+  "top_p": 0.9,
+  "max_tokens": 1024,
+  "repetition_penalty": 1.05,
+  "use_cache": true
+}
+Number of cached results: 198

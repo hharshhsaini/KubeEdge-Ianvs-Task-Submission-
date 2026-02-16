@@ -1,0 +1,53 @@
+﻿
+=== Cache Entry 0 ===
+Config: {
+  "model": "gpt-4o-mini",
+  "temperature": 0,
+  "top_p": 0.8,
+  "max_tokens": 512,
+  "repetition_penalty": 1.05,
+  "use_cache": true
+}
+Number of cached results: 14015
+
+=== Cache Entry 1 ===
+Config: {
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "backend": "vllm",
+  "temperature": 0,
+  "top_p": 0.8,
+  "max_tokens": 512,
+  "repetition_penalty": 1.05,
+  "tensor_parallel_size": 4,
+  "gpu_memory_utilization": 0.9,
+  "use_cache": true
+}
+Number of cached results: 14015
+
+=== Cache Entry 2 ===
+Config: {
+  "model": "Qwen/Qwen2.5-3B-Instruct",
+  "backend": "vllm",
+  "temperature": 0,
+  "top_p": 0.8,
+  "max_tokens": 512,
+  "repetition_penalty": 1.05,
+  "tensor_parallel_size": 4,
+  "gpu_memory_utilization": 0.9,
+  "use_cache": true
+}
+Number of cached results: 14015
+
+=== Cache Entry 3 ===
+Config: {
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "backend": "vllm",
+  "temperature": 0,
+  "top_p": 0.8,
+  "max_tokens": 512,
+  "repetition_penalty": 1.05,
+  "tensor_parallel_size": 4,
+  "gpu_memory_utilization": 0.9,
+  "use_cache": true
+}
+Number of cached results: 14015

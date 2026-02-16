@@ -1,0 +1,365 @@
+﻿WARNING 02-14 18:49:57 _custom_ops.py:19] Failed to import from vllm._C with ImportError('libcuda.so.1: cannot open shared object file: No such file or directory')
+docker : Traceback 
+(most recent call last):
+At line:1 char:1
++ docker exec ianvs-run 
+bash -c "source 
+activate 
+ianvs-experiment && cd 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo      
+        : NotSpecified  
+  : (Traceback (most    
+ recent call last)::    
+String) [], RemoteE    
+xception
+    + FullyQualifiedErr 
+   orId : NativeComman  
+  dError
+ 
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+common/utils.py", line 
+100, in load_module
+    importlib.import_mod
+ule(module_name)
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/importlib/__init_
+_.py", line 127, in 
+import_module
+    return _bootstrap._g
+cd_import(name[level:], 
+package, level)
+  File "<frozen 
+importlib._bootstrap>", 
+line 1014, in 
+_gcd_import
+  File "<frozen 
+importlib._bootstrap>", 
+line 991, in 
+_find_and_load
+  File "<frozen 
+importlib._bootstrap>", 
+line 975, in 
+_find_and_load_unlocked
+  File "<frozen 
+importlib._bootstrap>", 
+line 671, in 
+_load_unlocked
+  File "<frozen importli
+b._bootstrap_external>",
+ line 843, in 
+exec_module
+  File "<frozen 
+importlib._bootstrap>", 
+line 219, in _call_with_
+frames_removed
+  File "/ianvs/./example
+s/cloud-edge-collaborati
+ve-inference-for-llm/tes
+talgorithms/query-routin
+g/edge_model.py", line 
+21, in <module>
+    from models import 
+HuggingfaceLLM, 
+APIBasedLLM, VllmLLM, 
+EagleSpecDecModel, 
+LadeSpecDecLLM
+ImportError: cannot 
+import name 
+'LadeSpecDecLLM' from 
+'models' (/ianvs/./examp
+les/cloud-edge-collabora
+tive-inference-for-llm/t
+estalgorithms/query-rout
+ing/models/__init__.py)
+
+The above exception was 
+the direct cause of the 
+following exception:
+
+Traceback (most recent 
+call last):
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/algor
+ithm/module/module.py", 
+line 125, in 
+get_module_instance
+    utils.load_module(se
+lf.url)
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+common/utils.py", line 
+103, in load_module
+    raise 
+RuntimeError(f"load 
+module(url={url}) 
+failed, error: {err}") 
+from err
+RuntimeError: load modul
+e(url=./examples/cloud-e
+dge-collaborative-infere
+nce-for-llm/testalgorith
+ms/query-routing/edge_mo
+del.py) failed, error: 
+cannot import name 
+'LadeSpecDecLLM' from 
+'models' (/ianvs/./examp
+les/cloud-edge-collabora
+tive-inference-for-llm/t
+estalgorithms/query-rout
+ing/models/__init__.py)
+
+The above exception was 
+the direct cause of the 
+following exception:
+
+Traceback (most recent 
+call last):
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/testc
+ase/testcase.py", line 
+72, in run
+    paradigm = self.algo
+rithm.paradigm(workspace
+=self.output_dir,
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/algor
+ithm/algorithm.py", 
+line 128, in paradigm
+    return JointInferenc
+e(workspace, **config)
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/algor
+ithm/paradigm/joint_infe
+rence/joint_inference.py
+", line 51, in __init__
+    ParadigmBase.__init_
+_(self, workspace, 
+**kwargs)
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/algor
+ithm/paradigm/base.py", 
+line 56, in __init__
+    
+self.module_instances = 
+self._get_module_instanc
+es()
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/algor
+ithm/paradigm/base.py", 
+line 76, in 
+_get_module_instances
+    func = module.get_mo
+dule_instance(module_typ
+e)
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/algor
+ithm/module/module.py", 
+line 138, in 
+get_module_instance
+    raise RuntimeError(f
+"module(type={module_typ
+e} loads 
+class(name={self.name}) 
+"
+RuntimeError: 
+module(type=edgemodel 
+loads 
+class(name=EdgeModel) 
+failed, error: load modu
+le(url=./examples/cloud-
+edge-collaborative-infer
+ence-for-llm/testalgorit
+hms/query-routing/edge_m
+odel.py) failed, error: 
+cannot import name 
+'LadeSpecDecLLM' from 
+'models' (/ianvs/./examp
+les/cloud-edge-collabora
+tive-inference-for-llm/t
+estalgorithms/query-rout
+ing/models/__init__.py).
+
+The above exception was 
+the direct cause of the 
+following exception:
+
+Traceback (most recent 
+call last):
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/testc
+asecontroller.py", line 
+54, in run_testcases
+    res, time = (testcas
+e.run(workspace), 
+utils.get_local_time())
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/testc
+ase/testcase.py", line 
+79, in run
+    raise RuntimeError(
+RuntimeError: (paradigm=
+jointinference) 
+pipeline runs failed, 
+error: 
+module(type=edgemodel 
+loads 
+class(name=EdgeModel) 
+failed, error: load modu
+le(url=./examples/cloud-
+edge-collaborative-infer
+ence-for-llm/testalgorit
+hms/query-routing/edge_m
+odel.py) failed, error: 
+cannot import name 
+'LadeSpecDecLLM' from 
+'models' (/ianvs/./examp
+les/cloud-edge-collabora
+tive-inference-for-llm/t
+estalgorithms/query-rout
+ing/models/__init__.py).
+
+The above exception was 
+the direct cause of the 
+following exception:
+
+Traceback (most recent 
+call last):
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+cmd/benchmarking.py", 
+line 37, in main
+    job.run()
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+cmd/obj/benchmarkingjob.
+py", line 94, in run
+    succeed_testcases, 
+test_results = self.test
+case_controller.run_test
+cases(self.workspace)
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+testcasecontroller/testc
+asecontroller.py", line 
+56, in run_testcases
+    raise RuntimeError(f
+"testcase(id={testcase.i
+d}) runs failed, error: 
+{err}") from err
+RuntimeError: testcase(i
+d=f464dd7e-09d5-11f1-911
+e-7ee22e31c3d5) runs 
+failed, error: (paradigm
+=jointinference) 
+pipeline runs failed, 
+error: 
+module(type=edgemodel 
+loads 
+class(name=EdgeModel) 
+failed, error: load modu
+le(url=./examples/cloud-
+edge-collaborative-infer
+ence-for-llm/testalgorit
+hms/query-routing/edge_m
+odel.py) failed, error: 
+cannot import name 
+'LadeSpecDecLLM' from 
+'models' (/ianvs/./examp
+les/cloud-edge-collabora
+tive-inference-for-llm/t
+estalgorithms/query-rout
+ing/models/__init__.py).
+
+The above exception was 
+the direct cause of the 
+following exception:
+
+Traceback (most recent 
+call last):
+  File "/opt/conda/envs/
+ianvs-experiment/bin/ian
+vs", line 33, in 
+<module>
+    sys.exit(load_entry_
+point('ianvs==0.1.0', 
+'console_scripts', 
+'ianvs')())
+  File "/opt/conda/envs/
+ianvs-experiment/lib/pyt
+hon3.8/site-packages/ian
+vs-0.1.0-py3.8.egg/core/
+cmd/benchmarking.py", 
+line 41, in main
+    raise RuntimeError(f
+"benchmarkingjob runs 
+failed, error: {err}.") 
+from err
+RuntimeError: 
+benchmarkingjob runs 
+failed, error: testcase(
+id=f464dd7e-09d5-11f1-91
+1e-7ee22e31c3d5) runs 
+failed, error: (paradigm
+=jointinference) 
+pipeline runs failed, 
+error: 
+module(type=edgemodel 
+loads 
+class(name=EdgeModel) 
+failed, error: load modu
+le(url=./examples/cloud-
+edge-collaborative-infer
+ence-for-llm/testalgorit
+hms/query-routing/edge_m
+odel.py) failed, error: 
+cannot import name 
+'LadeSpecDecLLM' from 
+'models' (/ianvs/./examp
+les/cloud-edge-collabora
+tive-inference-for-llm/t
+estalgorithms/query-rout
+ing/models/__init__.py).
+.
