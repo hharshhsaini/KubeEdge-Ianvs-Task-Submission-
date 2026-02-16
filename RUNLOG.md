@@ -4,6 +4,13 @@
 
 This document covers the complete, end-to-end process of setting up and running the **Ianvs Cloud-Edge Collaborative Inference for LLM** benchmark on two datasets: **GPQA** and **MMLU-5-shot**. Every command, every error encountered, every fix applied, and every result is documented below.
 
+> **Note:** The following benchmarking was run inside a Docker container. If you prefer to run it manually without Docker, you can:
+> 1. Download the datasets from Kaggle (`gpqa` and `mmlu-5-shot`)
+> 2. Place the datasets in your repo and adjust the paths in `testenv.yaml`
+> 3. Fix the imports and missing modules (e.g., optional `LadeSpecDecLLM` import, install `retry`)
+> 4. Set the required API keys (`OPENAI_API_KEY`, `OPENAI_BASE_URL`)
+> 5. Run the benchmark: `ianvs -f examples/cloud-edge-collaborative-inference-for-llm/benchmarkingjob.yaml`
+
 ---
 
 ## 1. Environment Information
